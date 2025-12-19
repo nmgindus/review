@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar: Fire & Ash - Research Sources | NMG Indus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        cinzel: ['Cinzel', 'serif'],
+                    },
+                    colors: {
+                        avatar: {
+                            dark: '#020617',
+                            blue: '#0ea5e9',
+                            fire: '#f97316',
+                            glass: 'rgba(255, 255, 255, 0.05)',
+                        }
+                    },
+                    animation: {
+                        'pulse-glow': 'pulse-glow 3s infinite',
+                    },
+                    keyframes: {
+                        'pulse-glow': {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(249, 115, 22, 0.2)' },
+                            '50%': { boxShadow: '0 0 40px rgba(14, 165, 233, 0.4)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #020617;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+            color: #e2e8f0;
+        }
+        
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(14, 165, 233, 0.3);
+            box-shadow: 0 10px 40px -10px rgba(14, 165, 233, 0.2);
+        }
+
+        .category-btn {
+            transition: all 0.3s ease;
+        }
+
+        .category-btn.active {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            color: white;
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+            border: none;
+        }
+        
+        .fire-text {
+            background: linear-gradient(to right, #f97316, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .water-text {
+            background: linear-gradient(to right, #0ea5e9, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Navbar / Header -->
+    <header class="sticky top-0 z-50 glass-card border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <!-- Profile Image with Fallback -->
+                <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-orange-500 shadow-lg shadow-orange-500/20 bg-gray-800">
+                    <img 
+                        src="https://nmgindus.github.io/review/profile.jpg" 
+                        onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Manish+Gupta&background=f97316&color=fff&bold=true';"
+                        alt="Manish Gupta" 
+                        class="w-full h-full object-cover"
+                    >
+                </div>
+                <div>
+                    <h1 class="font-cinzel font-bold text-xl tracking-wider"><span class="water-text">AVATAR</span> <span class="text-white/50">|</span> <span class="fire-text">FIRE & ASH</span></h1>
+                    <p class="text-xs text-gray-400">Review Sources Database</p>
+                </div>
+            </div>
+            <a href="https://youtube.com/@nmgindus" target="_blank" class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-red-600/10 border border-red-500/20 text-red-400 hover:bg-red-600 hover:text-white transition-all duration-300">
+                <i class="fab fa-youtube"></i>
+                <span class="font-medium">NMG Indus</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+        
+        <!-- Intro Section -->
+        <div class="text-center mb-12 animate-fade-in">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 font-cinzel text-white">Research & Citations</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+                Curated list of sources, reviews, and data used for the "Avatar: Fire & Ash" review by 
+                <span class="text-white font-semibold">Manish Gupta</span>.
+            </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap justify-center gap-3 mb-10">
+            <button onclick="filterSources('all')" class="category-btn active px-6 py-2 rounded-full border border-white/10 text-gray-300 hover:bg-white/5" id="btn-all">All Sources</button>
+            <button onclick="filterSources('reviews')" class="category-btn px-6 py-2 rounded-full border border-white/10 text-gray-300 hover:bg-white/5" id="btn-reviews">Reviews</button>
+            <button onclick="filterSources('boxoffice')" class="category-btn px-6 py-2 rounded-full border border-white/10 text-gray-300 hover:bg-white/5" id="btn-boxoffice">Box Office</button>
+            <button onclick="filterSources('lore')" class="category-btn px-6 py-2 rounded-full border border-white/10 text-gray-300 hover:bg-white/5" id="btn-lore">Lore & Guides</button>
+            <button onclick="filterSources('community')" class="category-btn px-6 py-2 rounded-full border border-white/10 text-gray-300 hover:bg-white/5" id="btn-community">Reddit & Community</button>
+        </div>
+
+        <!-- Grid Container -->
+        <div id="sources-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Content will be injected via JS -->
+        </div>
+
+        <!-- Zero State (Hidden by default) -->
+        <div id="no-results" class="hidden text-center py-20">
+            <i class="fas fa-search text-4xl text-gray-600 mb-4"></i>
+            <p class="text-gray-500">No sources found for this category.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-black/20 mt-12">
+        <div class="max-w-7xl mx-auto px-4 py-8 text-center">
+            <p class="text-gray-500 text-sm mb-2">
+                All external content, titles, and trademarks belong to their respective owners. 
+                Used for educational and critical review purposes under Fair Use.
+            </p>
+            <p class="text-gray-400">
+                Created with <i class="fas fa-heart text-red-500 mx-1"></i> by <a href="https://youtube.com/@nmgindus" class="text-blue-400 hover:underline">Manish Gupta (NMG Indus)</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Data from the provided PDF
+        const sourceData = [
+            // --- REVIEWS ---
+            { category: 'reviews', source: 'Rotten Tomatoes', title: 'First Reviews: Familiar, but Still a Spectacle', icon: 'fa-lemon' },
+            { category: 'reviews', source: 'Metacritic', title: 'Avatar: Fire and Ash Critic Reviews & Score', icon: 'fa-star-half-alt' },
+            { category: 'reviews', source: 'Variety', title: 'Review: Story is Fine, Action Awesome (Owen Gleiberman)', icon: 'fa-newspaper' },
+            { category: 'reviews', source: 'The Guardian', title: 'Review: Witchy new sex interest cant save this (Peter Bradshaw)', icon: 'fa-shield-alt' },
+            { category: 'reviews', source: 'Empire Magazine', title: 'Review Summary (Ben Travis)', icon: 'fa-film' },
+            { category: 'reviews', source: 'Screen Rant', title: 'Rotten Tomatoes Score Sets Record & Post-Credits Scene', icon: 'fa-desktop' },
+            { category: 'reviews', source: 'Collider', title: 'Officially One of James Camerons Worst-Rated Movies', icon: 'fa-chart-bar' },
+            { category: 'reviews', source: 'SlashFilm', title: 'Sci-Fi Epic Delivers On Multiple Levels', icon: 'fa-film' },
+            { category: 'reviews', source: 'Den of Geek', title: 'Shallow Spectacle Still Earns Your Money', icon: 'fa-gamepad' },
+            { category: 'reviews', source: 'IGN', title: 'Review Summary (Max Scoville)', icon: 'fa-fire' },
+            { category: 'reviews', source: 'ScreenCrush', title: 'The Best Avatar Yet?', icon: 'fa-tv' },
+            { category: 'reviews', source: 'Mashable', title: 'How can a film be so stunning, yet so disappointing?', icon: 'fa-heart-broken' },
+            { category: 'reviews', source: 'Hollywood Reporter', title: 'Review Summary (David Rooney)', icon: 'fa-video' },
+            { category: 'reviews', source: 'Mama\'s Geeky', title: 'Review: Not Much More Than Beautiful', icon: 'fa-user-astronaut' },
+            { category: 'reviews', source: 'The Jam Report', title: 'Visual triumph with a story that could have burned hotter', icon: 'fa-music' },
+            { category: 'reviews', source: 'Sight and Sound', title: 'Review: A big, goofy spectacle', icon: 'fa-eye' },
+            
+            // --- BOX OFFICE ---
+            { category: 'boxoffice', source: 'Box Office Theory', title: '6-Week Tracking: $90M+ Forecast', icon: 'fa-chart-line' },
+            { category: 'boxoffice', source: 'Deadline', title: 'Projected $340M-$380M Global Opening', icon: 'fa-globe' },
+            { category: 'boxoffice', source: 'Koimoi', title: 'China Box Office & Pre-sales Reports', icon: 'fa-yen-sign' },
+            { category: 'boxoffice', source: 'Sacnilk', title: 'Projected to Open With $350 Million Worldwide', icon: 'fa-rupee-sign' },
+            { category: 'boxoffice', source: 'Hindustan Times', title: 'Box Office Collection Day 1 & Reviews', icon: 'fa-newspaper' },
+            { category: 'boxoffice', source: 'Live Mint', title: 'Box Office Collection Updates', icon: 'fa-money-bill-wave' },
+            { category: 'boxoffice', source: 'Maeil Business (Korea)', title: 'Draws 260,000 Viewers on Opening Day', icon: 'fa-users' },
+            
+            // --- LORE & GUIDES ---
+            { category: 'lore', source: 'Wikipedia', title: 'Avatar: Fire and Ash Production Info', icon: 'fa-book' },
+            { category: 'lore', source: 'Avatar Wiki', title: 'Mangkwan Clan Details', icon: 'fa-dungeon' },
+            { category: 'lore', source: 'MovieWeb', title: 'The Na\'vi Fire Clan Explained', icon: 'fa-fire-alt' },
+            { category: 'lore', source: 'FlatpanelsHD', title: 'Avatar in 3D and 48fps HFR', icon: 'fa-glasses' },
+            { category: 'lore', source: 'Parents.com', title: 'Should You Take Your Tween to See It?', icon: 'fa-child' },
+            { category: 'lore', source: 'Avatar Theory (YT)', title: 'Varang & The Mangkwan Clan Explained', icon: 'fa-youtube' },
+            
+            // --- COMMUNITY & REDDIT ---
+            { category: 'community', source: 'r/boxoffice', title: 'Tracking & Pre-sales Discussions', icon: 'fa-reddit' },
+            { category: 'community', source: 'r/movies', title: 'Official Review Thread', icon: 'fa-reddit-alien' },
+            { category: 'community', source: 'r/Avatar', title: 'Fire and Ash Review Megathread', icon: 'fa-comments' },
+            { category: 'community', source: 'r/blankies', title: 'A Contrarian Opinion Discussion', icon: 'fa-comment-alt' },
+            { category: 'community', source: 'r/dataisbeautiful', title: 'Box Office Visualizations', icon: 'fa-chart-pie' },
+        ];
+
+        const grid = document.getElementById('sources-grid');
+        const btns = document.querySelectorAll('.category-btn');
+        const noResults = document.getElementById('no-results');
+
+        function renderCards(filterType) {
+            grid.innerHTML = '';
+            let count = 0;
+
+            sourceData.forEach(item => {
+                if (filterType === 'all' || item.category === filterType) {
+                    count++;
+                    const card = document.createElement('div');
+                    card.className = 'glass-card p-6 rounded-xl flex flex-col justify-between h-full animate-fade-in-up';
+                    
+                    // Determine color based on category for slight accent
+                    let accentColor = 'text-blue-400';
+                    if(item.category === 'reviews') accentColor = 'text-green-400';
+                    if(item.category === 'boxoffice') accentColor = 'text-yellow-400';
+                    if(item.category === 'lore') accentColor = 'text-purple-400';
+                    if(item.category === 'community') accentColor = 'text-orange-400';
+
+                    card.innerHTML = `
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-xs font-bold uppercase tracking-widest text-gray-500 bg-white/5 px-2 py-1 rounded">${item.category}</span>
+                                <i class="fas ${item.icon} ${accentColor} text-lg"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-white mb-1 leading-tight">${item.source}</h3>
+                            <p class="text-gray-400 text-sm mb-4 leading-relaxed">${item.title}</p>
+                        </div>
+                        <div class="mt-2 pt-4 border-t border-white/5 flex items-center justify-between">
+                            <span class="text-xs text-gray-600">Source verified</span>
+                            <span class="text-xs ${accentColor} font-medium flex items-center gap-1">
+                                Reference <i class="fas fa-check-circle text-[10px]"></i>
+                            </span>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                }
+            });
+
+            if (count === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+
+        function filterSources(type) {
+            // Update buttons
+            btns.forEach(btn => {
+                if (btn.id === `btn-${type}`) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            // Render
+            renderCards(type);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCards('all');
+        });
+
+        // Add simple animation styles dynamically
+        const styleSheet = document.createElement("style");
+        styleSheet.innerText = `
+            @keyframes fadeInUp {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .animate-fade-in-up {
+                animation: fadeInUp 0.5s ease-out forwards;
+            }
+            .animate-fade-in {
+                animation: fadeInUp 0.8s ease-out forwards;
+            }
+        `;
+        document.head.appendChild(styleSheet);
+    </script>
+</body>
+</html>
